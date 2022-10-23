@@ -17,5 +17,19 @@ namespace lab3
             InitializeComponent();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(tbNum.Text, out int Num) ||
+                !int.TryParse(tbDenum.Text, out int Denum))
+            {
+                MessageBox.Show("Вы неверно ввели число или оставили поле пустым!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Fraction fraction = new Fraction(Num, Denum);
+            fraction.Reduction(fraction);
+            tbNum.Text = fraction.numerator.ToString();
+            tbDenum.Text = fraction.denumerator.ToString();
+        }
     }
 }

@@ -43,12 +43,12 @@ namespace lab3
             return 1;
         }
 
-        public static Fraction reduction (Fraction fraction)
+        public void Reduction (Fraction fraction)
         {
             int nod = fraction.nod(fraction);
             fraction.numerator = fraction.numerator / nod;
             fraction.denumerator = fraction.denumerator / nod;
-            return fraction;
+            
         }
     }
 }
