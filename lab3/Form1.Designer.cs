@@ -34,6 +34,15 @@ namespace lab3
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.tbNum1 = new System.Windows.Forms.TextBox();
+            this.tbDenum1 = new System.Windows.Forms.TextBox();
+            this.tbNum2 = new System.Windows.Forms.TextBox();
+            this.tbDenum2 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tbRes1 = new System.Windows.Forms.TextBox();
+            this.tbRes2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbNum
@@ -78,11 +87,97 @@ namespace lab3
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // tbNum1
+            // 
+            this.tbNum1.Location = new System.Drawing.Point(246, 17);
+            this.tbNum1.Name = "tbNum1";
+            this.tbNum1.Size = new System.Drawing.Size(100, 23);
+            this.tbNum1.TabIndex = 5;
+            // 
+            // tbDenum1
+            // 
+            this.tbDenum1.Location = new System.Drawing.Point(246, 49);
+            this.tbDenum1.Name = "tbDenum1";
+            this.tbDenum1.Size = new System.Drawing.Size(100, 23);
+            this.tbDenum1.TabIndex = 6;
+            // 
+            // tbNum2
+            // 
+            this.tbNum2.Location = new System.Drawing.Point(521, 20);
+            this.tbNum2.Name = "tbNum2";
+            this.tbNum2.Size = new System.Drawing.Size(100, 23);
+            this.tbNum2.TabIndex = 7;
+            // 
+            // tbDenum2
+            // 
+            this.tbDenum2.Location = new System.Drawing.Point(521, 49);
+            this.tbDenum2.Name = "tbDenum2";
+            this.tbDenum2.Size = new System.Drawing.Size(100, 23);
+            this.tbDenum2.TabIndex = 8;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "сложение",
+            "вычитание",
+            "умножение",
+            "деление"});
+            this.comboBox1.Location = new System.Drawing.Point(370, 32);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 23);
+            this.comboBox1.TabIndex = 9;
+            // 
+            // tbRes1
+            // 
+            this.tbRes1.Location = new System.Drawing.Point(679, 20);
+            this.tbRes1.Name = "tbRes1";
+            this.tbRes1.Size = new System.Drawing.Size(100, 23);
+            this.tbRes1.TabIndex = 10;
+            // 
+            // tbRes2
+            // 
+            this.tbRes2.Location = new System.Drawing.Point(679, 48);
+            this.tbRes2.Name = "tbRes2";
+            this.tbRes2.Size = new System.Drawing.Size(100, 23);
+            this.tbRes2.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(638, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(26, 28);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "=";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(370, 107);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(121, 23);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Вычислить";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 254);
+            this.ClientSize = new System.Drawing.Size(839, 254);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.tbRes2);
+            this.Controls.Add(this.tbRes1);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.tbDenum2);
+            this.Controls.Add(this.tbNum2);
+            this.Controls.Add(this.tbDenum1);
+            this.Controls.Add(this.tbNum1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -102,6 +197,15 @@ namespace lab3
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox tbNum1;
+        private System.Windows.Forms.TextBox tbDenum1;
+        private System.Windows.Forms.TextBox tbNum2;
+        private System.Windows.Forms.TextBox tbDenum2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox tbRes1;
+        private System.Windows.Forms.TextBox tbRes2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button2;
     }
 }
 

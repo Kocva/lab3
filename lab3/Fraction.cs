@@ -50,5 +50,34 @@ namespace lab3
             fraction.denumerator = fraction.denumerator / nod;
             
         }
+
+        public static Fraction operator +(Fraction first, Fraction second)
+        {
+            int n = first.numerator;
+            int d = first.denumerator;
+            int n1 = second.numerator;
+            int d1 = second.denumerator;
+            int d2;
+            if ((d1 >= d) && (d1 % d == 0))
+            {
+                d2 = d1;
+                
+            }
+            else if ((d > d1) && (d % d1 == 0))
+            {
+                d2 = d;
+                
+            }
+            else
+            {
+                d2 = d1 * d;
+            }
+
+            int n2 = n * (d2 / d) + n1 * (d2 / d1);
+
+            var result = new Fraction(n2, d2);
+            result.Reduction(result);
+            return result;
+        }
     }
 }

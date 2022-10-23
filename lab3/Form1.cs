@@ -31,5 +31,28 @@ namespace lab3
             tbNum.Text = fraction.numerator.ToString();
             tbDenum.Text = fraction.denumerator.ToString();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(tbNum1.Text, out int firstNum) ||
+                !int.TryParse(tbDenum1.Text, out int firstDenum) ||
+                !int.TryParse(tbNum2.Text, out int secondNum) ||
+                !int.TryParse(tbDenum2.Text, out int secondDenum))
+            {
+                MessageBox.Show("Вы неверно ввели число или оставили поле пустым!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Fraction first = new(firstNum, firstDenum);
+            Fraction second = new(secondNum, secondDenum);
+
+            if (comboBox1.Text == "сложение")
+            {
+                Fraction answer = (first + second);
+                tbRes1.Text = (answer.numerator).ToString();
+                tbRes2.Text = (answer.denumerator).ToString();
+            }
+        }
     }
 }
