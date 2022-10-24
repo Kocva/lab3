@@ -23,6 +23,62 @@ namespace lab3
             this.denumerator = denumerator;
         }
 
+        public int nod(Fraction fraction)
+        {
+            int n = fraction.numerator;
+            int d = fraction.denumerator;
+            n = Math.Abs(n);
+            d = Math.Abs(d);
+            while (d != 0 && n != 0)
+            {
+                if (n % d > 0)
+                {
+                    var temp = n;
+                    n = d;
+                    d = temp % d;
+                }
+                else break;
+            }
+            if (d != 0 && n != 0) return d;
+            return 1;
+        }
+
+        public Fraction reduction(Fraction fraction)
+        {
+            int nod = fraction.nod(fraction);
+            fraction.numerator = fraction.numerator / nod;
+            fraction.denumerator = fraction.denumerator / nod;
+            return fraction;
+        }
+
+        public static Fraction operator +(Fraction first, Fraction second)
+        {
+            int n = first.numerator;
+            int d = first.denumerator;
+            int n1 = second.numerator;
+            int d1 = second.denumerator;
+            int d2;
+            if ((d1 >= d) && (d1 % d == 0))
+            {
+                d2 = d1;
+
+            }
+            else if ((d > d1) && (d % d1 == 0))
+            {
+                d2 = d;
+
+            }
+            else
+            {
+                d2 = d1 * d;
+            }
+
+            int n2 = n * (d2 / d) + n1 * (d2 / d1);
+
+            Fraction result = new Fraction(n2, d2);
+            result = result.reduction(result);
+            return result;
+        }
 
     }
 }

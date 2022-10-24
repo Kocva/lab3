@@ -27,7 +27,7 @@ namespace lab3
                 return;
             }
             Fraction fraction = new Fraction(Num, Denum);
-            fraction.Reduction(fraction);
+            fraction.reduction(fraction);
             tbNum.Text = fraction.numerator.ToString();
             tbDenum.Text = fraction.denumerator.ToString();
         }
