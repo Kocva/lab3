@@ -51,7 +51,7 @@ namespace lab3
             return fraction;
         }
 
-        public static Fraction operator +(Fraction first, Fraction second)
+        public int newDenum(Fraction first, Fraction second)
         {
             int n = first.numerator;
             int d = first.denumerator;
@@ -72,6 +72,15 @@ namespace lab3
             {
                 d2 = d1 * d;
             }
+            return d2;
+        }
+        public static Fraction operator +(Fraction first, Fraction second)
+        {
+            int n = first.numerator;
+            int d = first.denumerator;
+            int n1 = second.numerator;
+            int d1 = second.denumerator;
+            int d2 = first.newDenum(first, second);
 
             int n2 = n * (d2 / d) + n1 * (d2 / d1);
 
@@ -79,6 +88,56 @@ namespace lab3
             result = result.reduction(result);
             return result;
         }
+
+        public static Fraction operator -(Fraction first, Fraction second)
+        {
+            int n = first.numerator;
+            int d = first.denumerator;
+            int n1 = second.numerator;
+            int d1 = second.denumerator;
+            int d2 = first.newDenum(first, second);
+
+            int n2 = n * (d2 / d) - n1 * (d2 / d1);
+
+            Fraction result = new Fraction(n2, d2);
+            result = result.reduction(result);
+            return result;
+        }
+
+        public static Fraction operator *(Fraction first, Fraction second)
+        {
+            
+            first.reduction(first);
+            second.reduction(second);
+            int n = first.numerator;
+            int d = first.denumerator;
+            int n1 = second.numerator;
+            int d1 = second.denumerator;
+
+            int n2 = n * n1;
+            int d2 = d * d1;
+            Fraction result = new Fraction(n2, d2);
+            result = result.reduction(result);
+            return result;
+        }
+
+        public static Fraction operator /(Fraction first, Fraction second)
+        {
+            first.reduction(first);
+            second.reduction(second);
+            int n = first.numerator;
+            int d = first.denumerator;
+            int n1 = second.denumerator;
+            int d1 = second.numerator;
+
+            int n2 = n * n1;
+            int d2 = d * d1;
+            Fraction result = new Fraction(n2, d2);
+            result = result.reduction(result);
+            return result;
+        }
+
+        public string (Fraction first, Fraction second)
 
     }
 }

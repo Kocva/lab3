@@ -53,6 +53,24 @@ namespace lab3
                 tbRes1.Text = (answer.numerator).ToString();
                 tbRes2.Text = (answer.denumerator).ToString();
             }
+            else if (comboBox1.Text == "вычитание")
+            {
+                Fraction answer = (first - second);
+                tbRes1.Text = (answer.numerator).ToString();
+                tbRes2.Text = (answer.denumerator).ToString();
+            }
+            else if (comboBox1.Text == "умножение")
+            {
+                Fraction answer = (first * second);
+                tbRes1.Text = (answer.numerator).ToString();
+                tbRes2.Text = (answer.denumerator).ToString();
+            }
+            else if (comboBox1.Text == "деление")
+            {
+                Fraction answer = (first / second);
+                tbRes1.Text = (answer.numerator).ToString();
+                tbRes2.Text = (answer.denumerator).ToString();
+            }
         }
     }
 }
