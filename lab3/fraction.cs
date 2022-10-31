@@ -6,10 +6,23 @@ using System.Threading.Tasks;
 
 namespace lab3
 {
-    class Fraction
+    public class Fraction
     {
         public int numerator;
         public int denumerator;
+
+        public override bool Equals(Object obj)
+        {
+            if ((obj == null) || ! this.GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+            else
+            {
+                Fraction p = (Fraction)obj;
+                return numerator == p.numerator && denumerator == p.denumerator;
+            }
+        }
 
         public Fraction ()
         {
@@ -23,10 +36,10 @@ namespace lab3
             this.denumerator = denumerator;
         }
 
-        public int nod(Fraction fraction)
+        public int nod()
         {
-            int n = fraction.numerator;
-            int d = fraction.denumerator;
+            int n = this.numerator;
+            int d = this.denumerator;
             n = Math.Abs(n);
             d = Math.Abs(d);
             while (d != 0 && n != 0)
@@ -43,12 +56,11 @@ namespace lab3
             return 1;
         }
 
-        public Fraction reduction(Fraction fraction)
+        public void reduction()
         {
-            int nod = fraction.nod(fraction);
-            fraction.numerator = fraction.numerator / nod;
-            fraction.denumerator = fraction.denumerator / nod;
-            return fraction;
+            int nod = this.nod();
+            this.numerator = this.numerator / nod;
+            this.denumerator = this.denumerator / nod;
         }
 
         public int newDenum(Fraction first, Fraction second)
@@ -85,7 +97,7 @@ namespace lab3
             int n2 = n * (d2 / d) + n1 * (d2 / d1);
 
             Fraction result = new Fraction(n2, d2);
-            result = result.reduction(result);
+            result.reduction();
             return result;
         }
 
@@ -100,15 +112,15 @@ namespace lab3
             int n2 = n * (d2 / d) - n1 * (d2 / d1);
 
             Fraction result = new Fraction(n2, d2);
-            result = result.reduction(result);
+            result.reduction();
             return result;
         }
 
         public static Fraction operator *(Fraction first, Fraction second)
         {
             
-            first.reduction(first);
-            second.reduction(second);
+            first.reduction();
+            second.reduction();
             int n = first.numerator;
             int d = first.denumerator;
             int n1 = second.numerator;
@@ -117,14 +129,14 @@ namespace lab3
             int n2 = n * n1;
             int d2 = d * d1;
             Fraction result = new Fraction(n2, d2);
-            result = result.reduction(result);
+            result.reduction();
             return result;
         }
 
         public static Fraction operator /(Fraction first, Fraction second)
         {
-            first.reduction(first);
-            second.reduction(second);
+            first.reduction();
+            second.reduction();
             int n = first.numerator;
             int d = first.denumerator;
             int n1 = second.denumerator;
@@ -133,11 +145,59 @@ namespace lab3
             int n2 = n * n1;
             int d2 = d * d1;
             Fraction result = new Fraction(n2, d2);
-            result = result.reduction(result);
+            result.reduction();
             return result;
         }
 
-        public string (Fraction first, Fraction second)
+        public static string operator == (Fraction first, Fraction second)
+        {
+            first.reduction();
+            second.reduction();
+            int n = first.numerator;
+            int d = first.denumerator;
+            int n1 = second.numerator;
+            int d1 = second.denumerator;
+            string str = "";
 
+            float a = n / d;
+            float b = n1 / d1;
+
+            if (n == n1 && d == d1)
+            {
+                str = "Дроби равны";
+            }
+            else
+            {
+                str = "Дроби не равны";
+            }
+
+
+            return str;
+        }
+
+        public static string operator !=(Fraction first, Fraction second)
+        {
+            first.reduction();
+            second.reduction();
+            int n = first.numerator;
+            int d = first.denumerator;
+            int n1 = second.numerator;
+            int d1 = second.denumerator;
+            string str = "";
+
+            float a = n / d;
+            float b = n1 / d1;
+
+            if (n != n1 || d != d1)
+            {
+                str = "Дроби не равны";
+            }
+            else
+            {
+                str = "Дроби равны";
+            }
+
+            return str;
+        }
     }
 }

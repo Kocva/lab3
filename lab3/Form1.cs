@@ -27,7 +27,7 @@ namespace lab3
                 return;
             }
             Fraction fraction = new Fraction(Num, Denum);
-            fraction.reduction(fraction);
+            fraction.reduction();
             tbNum.Text = fraction.numerator.ToString();
             tbDenum.Text = fraction.denumerator.ToString();
         }
@@ -71,6 +71,27 @@ namespace lab3
                 tbRes1.Text = (answer.numerator).ToString();
                 tbRes2.Text = (answer.denumerator).ToString();
             }
+
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(tbNum3.Text, out int firstNum) ||
+                !int.TryParse(tbDenum3.Text, out int firstDenum) ||
+                !int.TryParse(tbNum4.Text, out int secondNum) ||
+                !int.TryParse(tbDenum4.Text, out int secondDenum))
+            {
+                MessageBox.Show("Вы неверно ввели число или оставили поле пустым!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Fraction first = new(firstNum, firstDenum);
+            Fraction second = new(secondNum, secondDenum);
+
+            string str = (first == second);
+            label4.Text = str;
+
         }
     }
 }
