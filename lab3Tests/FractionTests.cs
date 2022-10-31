@@ -17,12 +17,8 @@ namespace lab3.Tests
             
             Fraction result = new Fraction(10, 30);
             result.reduction();
-            string str = result.numerator.ToString();
-            string str2 = result.denumerator.ToString();
-            str += " ";
-            str += str2;
-            
-            Assert.AreEqual("1 3", str);
+
+            Assert.AreEqual(new Fraction(1, 3), result);
         }
 
         [TestMethod()]
@@ -32,12 +28,9 @@ namespace lab3.Tests
             Fraction first = new Fraction(1, 30);
             Fraction second = new Fraction(4, 15);
             Fraction result = (first + second);
-            string str = result.numerator.ToString();
-            string str2 = result.denumerator.ToString();
-            str += " ";
-            str += str2;
+            
 
-            Assert.AreEqual("3 10", str);
+            Assert.AreEqual(new Fraction(3, 10), result);
         }
         [TestMethod()]
         public void SubtractionTest()
@@ -58,12 +51,9 @@ namespace lab3.Tests
             Fraction first = new Fraction(10, 30);
             Fraction second = new Fraction(2, 15);
             Fraction result = (first * second);
-            string str = result.numerator.ToString();
-            string str2 = result.denumerator.ToString();
-            str += " ";
-            str += str2;
+            
 
-            Assert.AreEqual("2 45", str);
+            Assert.AreEqual(new Fraction(2, 45), result);
         }
 
         [TestMethod()]
@@ -73,12 +63,9 @@ namespace lab3.Tests
             Fraction first = new Fraction(10, 30);
             Fraction second = new Fraction(2, 15);
             Fraction result = (first / second);
-            string str = result.numerator.ToString();
-            string str2 = result.denumerator.ToString();
-            str += " ";
-            str += str2;
+            
 
-            Assert.AreEqual("5 2", str);
+            Assert.AreEqual(new Fraction(5, 2), result);
         }
 
         [TestMethod()]
